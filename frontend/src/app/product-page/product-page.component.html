@@ -1,9 +1,49 @@
-<div class ="container col-md-4">
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-3">
+      <div class="card box-shadow" >
+        <img
+          class="card-img-top"
+          src="{{location}}"
+          alt="Card image cap"
+        />
+        </div>
+      </div>
 
-  <img [src]="location" height="300px" width=100%> <br><br>
-  <form class="form">
-    <input type="number" class="form-control" placeholder="Enter Quantity" #qty><br>
-    <input type="submit" class="btn btn-warning form-control" value = "Add To Cart" (click)="sendToCart(qty.value)"><br><br>
-    <input type="submit" class="btn btn-warning form-control" value = "Add To Wishlist" (click)="sendToWishL(qty.value)"><br><br>
-  </form>
+      <div class="col-9 card box-shadow">
+        <h3>{{product.productName}}</h3>
+        <h4>{{product.productPrice}}</h4>
+        <h5>{{product.productBrand}}</h5>
+        <h5>{{product.productRating}}</h5>
+      </div>
+  </div>
+  <br>
+
+  <div class="row card box-shadow">
+    <div class="col-12">
+      <p>{{product.productInfo}}</p>
+    </div>
+  </div>
+  <br>
+
+  <div align="center">
+    <form [formGroup] = "quantityForm">
+      Enter Quantity: <input type="number" value="1" formControlName="quantity">
+    </form>
+  </div>
+  <br>  
+
+  <div class="row" align="center">
+    <div class="col-4">
+      <button [disabled]="!quantityForm.valid" class="btn btn-warning" (click)="btnWishlist()" >add to wishlist</button>
+    </div>
+    <div class="col-4">
+      <button [disabled]="!quantityForm.valid" class="btn btn-warning" (click)="btnCart()" >add to cart</button>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-warning" (click)="btnFeedback()" >give feedback</button>
+    </div>
+  </div>
+
 </div>

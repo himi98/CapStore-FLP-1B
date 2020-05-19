@@ -99,4 +99,8 @@ sendToWishL(quantity:Number,customerId:Customer,productId:Product){
     return Observable.throw(error||"SERVER ERROR");  
   }
 
+  getfeedback(){
+    // complete this to get feedback
+  }
+
 }
